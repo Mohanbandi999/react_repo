@@ -25,9 +25,7 @@ function App() {
         <Route path="/list" element={<ListComponent users={[]} onSelectUser={function (user: User): void {
           throw new Error('Function not implemented.');
         } }/>} /> 
-        <Route path="/update" element={<UpdateComponent selectedUser={null} onUpdateUser={function (updatedUser: User): void {
-          throw new Error('Function not implemented.');
-        } } />} /> 
+        <Route path="/update/:userId" element={<UpdateComponent  />} /> 
    
          
       </Routes>

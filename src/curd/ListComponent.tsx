@@ -13,14 +13,21 @@ interface ListComponentProps {
     onSelectUser: (user: User) => void;
   }
 
-const ListComponent:  React.FC<ListComponentProps> = ({ users, onSelectUser })=> {
-  const [items, setItems] = useState<User[]>([]);
   
-  const navigate=useNavigate();
-  const navtodash=()=>{
-    
-    navigate('/update')
-  }
+
+const ListComponent:  React.FC<ListComponentProps> = ({  onSelectUser })=> {
+  const [items, setItems] = useState<User[]>([]);
+  const[userone,setUserone]=useState<User>();
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
+  
+  
+  const navigate = useNavigate();
+
+  const navToDash = (userId:any) => {
+    navigate(`/update/${userId}`);
+   
+  };
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -36,13 +43,34 @@ const ListComponent:  React.FC<ListComponentProps> = ({ users, onSelectUser })=>
     fetchItems();
   }, []);
 
+  const handleDeleteUser = (userId: number) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== userId));
+  };
+
+  
+
+ 
+  
+  
+
+  const handleSelectUser = (item:any) => {
+    console.log(item);
+  };
+
+ 
+
+
   return (
     <ul>
       {items.map((item) => (
+         <div key={item.id}>
         <li key={item.id}>{item.id} { item.email}  {item.name} { item.username} 
-        <button type="button" onClick={navtodash} >View</button>
-        <button type="button" onClick={navtodash} >Delete</button>
+        <button type="button" onClick={() => navToDash(item.id)} >View</button>
+
+        <button type="button" onClick={() => handleDeleteUser(item.id)} >Delete</button>
+        
         </li>
+        </div>
       ))}
       
     </ul>
@@ -51,3 +79,5 @@ const ListComponent:  React.FC<ListComponentProps> = ({ users, onSelectUser })=>
 };
 
 export default ListComponent;
+
+
