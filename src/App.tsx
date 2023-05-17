@@ -22,10 +22,8 @@ function App() {
 
 <Routes>
         <Route path="/add" element={<FormComponent/>} /> 
-        <Route path="/list" element={<ListComponent users={[]} onSelectUser={function (user: User): void {
-          throw new Error('Function not implemented.');
-        } }/>} /> 
-        <Route path="/update/:userId" element={<UpdateComponent  />} /> 
+        <Route path="/list" element={<ListComponent  /> } />
+        <Route path="/update/:userId" element={<UpdateComponent />} /> 
    
          
       </Routes>

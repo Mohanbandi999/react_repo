@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { TextField, Button } from '@mui/material';
 
 interface User {
   id: number;
@@ -87,25 +88,22 @@ const UpdateComponent: React.FC = () => {
     <div>
       <h2>Update User</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="username">Phone Number:</label>
-          <input type="text" id="username" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-        <button type="submit">Update</button>
-        
-      </form>
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+      </div>
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Email" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      </div>
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Phone Number" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      </div>
+      <Button type="submit" variant="contained" color="primary">
+        Update
+      </Button>
+    </form>
     </div>
   );
 };

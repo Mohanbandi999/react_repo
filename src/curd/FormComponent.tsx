@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 
 
 
@@ -39,25 +40,25 @@ const FormComponent: React.FC = () => {
   
 
   return (
-    <form onSubmit={handleSubmit} >
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+    <div style={{ marginTop: '16px' }}>
+    <form onSubmit={handleSubmit}>
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} />
       </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Email" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
-      <div>
-        <label htmlFor="username">Phone number:</label>
-        <input type="number" id="username" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      <div style={{ marginBottom: '16px' }}>
+        <TextField label="Phone number" type="number" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
       </div>
-      <button type="submit">Submit</button>
+      <Button type="submit" variant="contained" color="primary">
+        Submit
+      </Button>
     </form>
+    </div>
   );
 };
 
