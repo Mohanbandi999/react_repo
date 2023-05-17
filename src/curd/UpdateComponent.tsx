@@ -6,6 +6,7 @@ interface User {
   name: string;
   email: string;
   username: string;
+  phone:string;
 }
 
 const UpdateComponent: React.FC = () => {
@@ -14,7 +15,7 @@ const UpdateComponent: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
- 
+  const [phone, setPhone] = useState('');
  console.log(userId)
   useEffect(() => {
     const fetchItem = async () => {
@@ -36,6 +37,7 @@ const UpdateComponent: React.FC = () => {
       setName(userone.name);
       setEmail(userone.email);
       setUsername(userone.username);
+      setPhone(userone.phone)
     }
   }, [userone]);
 
@@ -56,6 +58,7 @@ const UpdateComponent: React.FC = () => {
         name,
         email,
         username,
+        phone
       };
   
       // Send a PUT request to update the user
@@ -95,6 +98,10 @@ const UpdateComponent: React.FC = () => {
         <div>
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="username">Phone Number:</label>
+          <input type="text" id="username" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <button type="submit">Update</button>
         

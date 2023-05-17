@@ -6,6 +6,7 @@ interface User {
   name: string;
   email:string;
   username:string;
+  phone:string
 }
 
 interface ListComponentProps {
@@ -64,7 +65,7 @@ const ListComponent:  React.FC<ListComponentProps> = ({  onSelectUser })=> {
     <ul>
       {items.map((item) => (
          <div key={item.id}>
-        <li key={item.id}>{item.id} { item.email}  {item.name} { item.username} 
+        <li key={item.id}>{item.id} { item.email}  {item.name} { item.username} { item.phone} 
         <button type="button" onClick={() => navToDash(item.id)} >View</button>
 
         <button type="button" onClick={() => handleDeleteUser(item.id)} >Delete</button>

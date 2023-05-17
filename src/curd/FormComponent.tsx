@@ -6,6 +6,7 @@ const FormComponent: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ const FormComponent: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, username }),
+        body: JSON.stringify({ name, email, username, phone }),
       });
 
       if (response.ok) {
@@ -50,6 +51,10 @@ const FormComponent: React.FC = () => {
       <div>
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      </div>
+      <div>
+        <label htmlFor="username">Phone number:</label>
+        <input type="number" id="username" value={phone} onChange={(e) => setPhone(e.target.value)} />
       </div>
       <button type="submit">Submit</button>
     </form>
