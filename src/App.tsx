@@ -5,7 +5,9 @@ import ListComponent from './curd/ListComponent';
 import FormComponent from './curd/FormComponent';
 import UpdateComponent from './curd/UpdateComponent';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './curd/Navbar';
+import Navbar from './Navbar';
+
+import ParentComponent from './listcontext/ParentComponent';
 
 interface User {
   id: number;
@@ -20,13 +22,15 @@ function App() {
       <Navbar/>
      
 
-<Routes>
+        <Routes>
         <Route path="/add" element={<FormComponent/>} /> 
         <Route path="/list" element={<ListComponent  /> } />
         <Route path="/update/:userId" element={<UpdateComponent />} /> 
-   
-         
+        <Route path="/parent" element={<ParentComponent/>} /> 
+        
+          
       </Routes>
+      
     
     </div>
     

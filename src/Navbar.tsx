@@ -7,7 +7,7 @@ function Navbar() {
         <nav>
             <NavLink to='/add'>Add</NavLink>
             <NavLink to='/list'>List</NavLink>
-            
+            <NavLink to='/parent'>Parent</NavLink>
         </nav>
       
     </div>
