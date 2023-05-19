@@ -13,7 +13,8 @@ const ChildComponent = (props: ChildComponentProps) => {
   return (
     <div>
       <h2>Child component</h2>
-      <SubChildCompmonent  />
+      <SubChildCompmonent 
+          />
     </div>
   );
 };
